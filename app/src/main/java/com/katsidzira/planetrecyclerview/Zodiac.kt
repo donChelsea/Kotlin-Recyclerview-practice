@@ -1,11 +1,14 @@
 package com.katsidzira.planetrecyclerview
 
-class Zodiac(
+import com.google.gson.annotations.SerializedName
+
+data class Zodiac(
     val name: String,
     val number: Int,
     val image: String
 )
 
-class ZodiacList(
-    val zodiacList: ArrayList<Zodiac>
+data class ZodiacList(
+    @SerializedName("zodiac")
+    val zodiacList: List<Zodiac>
 )
