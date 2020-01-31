@@ -7,16 +7,18 @@ import android.view.ViewGroup
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.zodiac_list_view.view.*
 
-class ZodiacAdapter(val zodiacList: List<Zodiac>) : RecyclerView.Adapter<ZodiacAdapter.ZodiacViewHolder>() {
+class ZodiacAdapter(val zodiacList: ZodiacList) : RecyclerView.Adapter<ZodiacAdapter.ZodiacViewHolder>() {
+
+    private val zodiacs = zodiacList.zodiacList
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int) =
         ZodiacViewHolder(LayoutInflater.from(p0.context).inflate(R.layout.zodiac_list_view, p0, false)
     )
 
-    override fun getItemCount() = zodiacList.size
+    override fun getItemCount() = zodiacs.size
 
     override fun onBindViewHolder(p0: ZodiacViewHolder, p1: Int) {
-        p0.onBind(zodiacList[p1])
+        p0.onBind(zodiacs[p1])
     }
 
     class ZodiacViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -27,7 +29,7 @@ class ZodiacAdapter(val zodiacList: List<Zodiac>) : RecyclerView.Adapter<ZodiacA
 
         fun onBind(zodiac: Zodiac) {
             nameTv.text = zodiac.name
-            numberTv.text = zodiac.number.toString()
+            numberTv.text = zodiac.number
             Picasso.get().load(zodiac.image).into(imageIv)
         }
     }

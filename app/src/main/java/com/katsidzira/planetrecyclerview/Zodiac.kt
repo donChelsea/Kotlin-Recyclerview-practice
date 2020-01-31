@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 
 data class Zodiac(
     val name: String,
-    val number: Int,
+    val number: String,
     val image: String
 )
 
