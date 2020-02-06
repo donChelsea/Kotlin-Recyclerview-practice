@@ -7,9 +7,9 @@ import android.view.ViewGroup
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.zodiac_list_view.view.*
 
-class ZodiacAdapter(val zodiacList: ZodiacList) : RecyclerView.Adapter<ZodiacAdapter.ZodiacViewHolder>() {
+class ZodiacAdapter(val zodiacList: List<Zodiac>) : RecyclerView.Adapter<ZodiacAdapter.ZodiacViewHolder>() {
 
-    private val zodiacs = zodiacList.zodiacList
+    private val zodiacs = zodiacList
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int) =
         ZodiacViewHolder(LayoutInflater.from(p0.context).inflate(R.layout.zodiac_list_view, p0, false)
@@ -22,7 +22,6 @@ class ZodiacAdapter(val zodiacList: ZodiacList) : RecyclerView.Adapter<ZodiacAda
     }
 
     class ZodiacViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-
         private val nameTv = view.name_textview
         private val numberTv = view.number_textview
         private val imageIv = view.imageview

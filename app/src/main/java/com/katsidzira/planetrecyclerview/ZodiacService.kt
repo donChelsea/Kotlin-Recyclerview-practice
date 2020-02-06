@@ -1,9 +1,9 @@
 package com.katsidzira.planetrecyclerview
 
-import retrofit2.Call
+import io.reactivex.Observable
 import retrofit2.http.GET
 
 interface ZodiacService {
     @GET("JDVila/storybook/master/zodiac.json")
-    fun getAll(): Call<ZodiacList>
+    fun getAll(): Observable<ZodiacList>
 }
